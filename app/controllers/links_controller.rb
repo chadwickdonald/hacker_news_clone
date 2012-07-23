@@ -4,9 +4,19 @@ class LinksController < ApplicationController
   end
 
   def new
+    puts "*****************new***************************"
+    @new_link = Link.new
   end
 
   def create
+    puts "*****************create***************************"
+    @link = Link.new(params[:link])
+    if @link.save
+      flash[:notice] = "Link was created."
+      redirect_to links_path
+    else
+      render :new
+    end
   end
 
   def edit
