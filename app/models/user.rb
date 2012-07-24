@@ -1,11 +1,14 @@
 require 'digest/sha2'
 
 class User < ActiveRecord::Base
-  validates :name, :presence => true, :uniqueness => true
+  validates :name, presence: true,
+                   uniqueness: { case_sensitive: false }
   validates :password, :confirmation => true
   attr_accessible :password_confirmation, :name, :password
   attr_reader :password
   validate :password_must_be_present
+
+  before_save { |user| user.name = name.downcase }
 
   def password=(password)
     @password = password

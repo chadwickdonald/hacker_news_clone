@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120723225459) do
+ActiveRecord::Schema.define(:version => 20120724010439) do
 
   create_table "links", :force => true do |t|
     t.string   "description"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20120723225459) do
     t.string   "salt"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "email"
   end
 
 end
