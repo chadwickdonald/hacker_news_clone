@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    puts "*" * 100
     @user = User.new(params[:user])
     if @user.save
       redirect_to(links_path, :notice => 'User #{@user.name} was successfully created.')
