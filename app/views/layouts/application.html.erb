@@ -21,7 +21,8 @@
               <li><%= link_to "New"%></li>
               <li><%= link_to "Comments" %></li>
               <li><%= link_to "Submit", new_link_path %></li>
-              <li><%= link_to "Sign Up", new_user_path %></li>
+              <li class='divider-vertical'>
+             <%= render :partial => 'shared/login' %>
             </ul>
           </div>
       </div>
@@ -30,8 +31,15 @@
 <div>
 
 <div class='container'>
+  <div class='flash'>
+    <% if flash[:notice] %>
+    <p>
+      <%= flash[:notice] %>
+    </p>
+    <% end %>
+  </div>
   <div class='row'>
-    <div class='span9'><%= yield %></div>
+    <div class='span3'><%= yield %></div>
   </div>
 </div>
 
