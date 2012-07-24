@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :username, :password, :password_confirmation
+  validates_uniqueness_of :username
+
   has_secure_password
   # validates :password, :length => 6
 

@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.authenticate(params[:username], params[:password])
     if user
       session[:user_id] = user.id
-      redirect_to root_path, :notice => 'Signed In!'
+      redirect_to root_path, :notice => "Signed in"
     else
       redirect_to signin_path, :notice => 'Invalid username or password'
     end
