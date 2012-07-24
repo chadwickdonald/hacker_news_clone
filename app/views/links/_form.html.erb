@@ -1,5 +1,14 @@
 <%= form_for @new_link do |f| %>
 
+    <% if @new_link.errors.any? %>
+      <div class="control-group" id="error_explanation">
+        <% @new_link.errors.full_messages.each do |msg| %>
+          <div class="alert alert-error"><%= msg %></div>
+        <% end %>
+      </div>
+    <% end %>
+
+
     <%= f.label :description %>
     <%= f.text_field :description %>
 

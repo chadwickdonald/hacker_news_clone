@@ -1,5 +1,7 @@
 HackerNewsClone::Application.routes.draw do
 
+  resources :users
+
   root :to => "links#index"
 
   resources :links
