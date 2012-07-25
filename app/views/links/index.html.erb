@@ -1,7 +1,14 @@
 <ul>
+
   <% @links.each do |link| %>
-      <a class='btn' href='<%=link.url%>'><%=link.description%><a>
-      <br />
+        <li class="nav">
+          <a class='btn' href='<%=link.url%>'><%=link.description%></a>
+          <p><%=link.url%></p>
+          <a href=''>discuss</a>
+          <% if signed_in? && current_user.id == link.user_id %>
+            <a href=''>edit</a>
+            <a href=''>delete</a>
+          <% end %>
+        </li>
       <br />
 <%end%>
-</ul>

@@ -9,6 +9,7 @@ class LinksController < ApplicationController
 
   def create
     @new_link = Link.new(params[:link])
+    @new_link.user_id = current_user.id
     if @new_link.save
       flash[:notice] = "Link was created."
       redirect_to links_path
