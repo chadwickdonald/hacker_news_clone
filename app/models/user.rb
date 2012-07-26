@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   has_secure_password
   # validates :password, :length => 6
+  # test
 
   def self.authenticate(username, password)
     find_by_username(username).try(:authenticate, password)
