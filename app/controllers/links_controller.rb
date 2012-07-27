@@ -19,13 +19,19 @@ class LinksController < ApplicationController
   end
 
   def edit
-    @new_link = Link.find(params[:link])
+    @new_link = Link.find(params[:id])
   end
 
   def show
   end
 
   def update
+     @link = Link.find(params[:id])
+     @link.update_attributes(params[:link])
+
+     flash[:message] = "Link '#{@link.description}' updated!"
+
+     redirect_to links_path
   end
 
   def destroy

@@ -4,5 +4,6 @@ class Link < ActiveRecord::Base
 
   validates_uniqueness_of :url
   validate :url, :format => {:with => /(http:\/\/|https:\/\/)/}
-  
+
 end
+

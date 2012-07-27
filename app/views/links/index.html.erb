@@ -6,7 +6,7 @@
           <p><%=link.url%></p>
           <a href=''>discuss</a>
           <% if signed_in? && current_user.id == link.user_id %>
-            <a href=''>edit</a>
+            <%= link_to "edit", :action => :edit, :id => link.id %>
             <a href=''>delete</a>
           <% end %>
         </li>
