@@ -1,0 +1,17 @@
+<%= form_for @comment do |c| %>
+
+    <% if @comment.errors.any? %>
+      <div class="control-group" id="error_explanation">
+        <% @comment.errors.full_messages.each do |msg| %>
+          <div class="alert alert-error"><%= msg %></div>
+        <% end %>
+      </div>
+    <% end %>
+
+
+    <%= c.label :text %>
+    <%= c.text_field :text %>
+
+    <%= c.submit 'Save'%>
+
+<% end %>

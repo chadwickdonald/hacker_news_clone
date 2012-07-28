@@ -10,6 +10,7 @@ HackerNewsClone::Application.routes.draw do
 
   resources :votes
   resources :links
+  resources :comments
 
   resources :sessions, only: [:new, :create, :destroy]
 
