@@ -23,15 +23,17 @@ class LinksController < ApplicationController
   end
 
   def show
+    puts "*********************SHOW"
   end
 
   def update
-     @link = Link.find(params[:id])
-     @link.update_attributes(params[:link])
-
-     flash[:message] = "Link '#{@link.description}' updated!"
-
-     redirect_to links_path
+    puts "*"*50
+    @link = Link.find(params[:id])
+    puts "*"*50
+    puts @link
+    @link.update_attributes(params[:link])
+    flash[:message] = "Your link was updated!"
+    redirect_to links_path
   end
 
   def destroy

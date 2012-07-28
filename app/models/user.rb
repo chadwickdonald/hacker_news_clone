@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :links
+  has_many :votes
   attr_accessible :username, :password, :password_confirmation, :id
   validates_uniqueness_of :username
 

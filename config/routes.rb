@@ -1,9 +1,14 @@
 HackerNewsClone::Application.routes.draw do
 
+  get "votes/create"
+
+  get "votes/show"
+
   resources :users
 
   root :to => "links#index"
 
+  resources :votes
   resources :links
 
   resources :sessions, only: [:new, :create, :destroy]

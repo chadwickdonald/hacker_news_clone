@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     puts "*" * 100
     @user = User.new(params[:user])
     if @user.save
-      redirect_to(links_path, :notice => 'User #{@user.name} was successfully created.')
+      redirect_to(links_path, :notice => 'Your account was successfully created.')
     else
       render action: "new"
     end

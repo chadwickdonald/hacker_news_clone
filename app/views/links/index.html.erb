@@ -2,10 +2,17 @@
 
   <% @links.each do |link| %>
         <li class="nav">
+          <br>
+          <% if signed_in? %>
+            <% if current_user.id != link.user_id %>
+              <p><%= link_to "up", votes_path(:link_id => link.id), :method => :post %><p>
+            <% end %>
+          <% end %>
+          votes:<%= link.votes_count%></p>
           <a class='btn' href='<%=link.url%>'><%=link.description%></a>
           <p><%=link.url%></p>
           <a href=''>discuss</a>
-          <% if signed_in? && current_user.id == link.user_id %>
+          <% if signed_in? && current_user.id == link.user_id && Time.now < link.created_at + 60*15 %>
             <%= link_to "edit", :action => :edit, :id => link.id %>
             <a href=''>delete</a>
           <% end %>
