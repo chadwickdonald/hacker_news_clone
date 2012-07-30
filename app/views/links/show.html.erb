@@ -4,5 +4,5 @@
 <%= render :partial => 'comments/form', :locals => { :commentable => @commentable, :comment => @comment } %>
 
 <% @link.comments.each do |c| %>
-	-> <%= c.text %><br>
+	-> <%= c.user.username %> posted this <%= ((Time.now - c.created_at)/3600).to_i %> hours ago<br><%= c.text %><br><%= link_to "reply", link_comments_path(c.id, :method => "post") %><br>
 <% end %>
