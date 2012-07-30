@@ -1,4 +1,4 @@
-<%= form_for @comment do |c| %>
+<%= form_for [commentable, comment] do |f| %>
 
     <% if @comment.errors.any? %>
       <div class="control-group" id="error_explanation">
@@ -9,9 +9,12 @@
     <% end %>
 
 
-    <%= c.label :text %>
-    <%= c.text_field :text %>
-
-    <%= c.submit 'Save'%>
+  <br>  
+  <div class="field">
+    <%= f.text_area :text, :rows => 8, :cols => 40 %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
 
 <% end %>

@@ -9,8 +9,9 @@ HackerNewsClone::Application.routes.draw do
   root :to => "links#index"
 
   resources :votes
-  resources :links
-  resources :comments
+  resources :links do 
+    resources :comments
+  end
 
   resources :sessions, only: [:new, :create, :destroy]
 

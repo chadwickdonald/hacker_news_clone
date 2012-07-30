@@ -11,7 +11,7 @@ class LinksController < ApplicationController
     @new_link = Link.new(params[:link])
     @new_link.user_id = current_user.id
     if @new_link.save
-      flash[:notice] = "Link was created."
+      flash[:notice] = "Your link was created."
       redirect_to links_path
     else
       render :new
@@ -23,14 +23,17 @@ class LinksController < ApplicationController
   end
 
   def show
-    puts "*********************SHOW"
+    @link = Link.find(params[:id])
+    @commentable = @link
+    @comments = @commentable.comments
+    @comment = Comment.new
+    session[:source_link] = request.fullpath
   end
 
   def update
-    puts "*"*50
+   
     @link = Link.find(params[:id])
-    puts "*"*50
-    puts @link
+    
     @link.update_attributes(params[:link])
     flash[:message] = "Your link was updated!"
     redirect_to links_path

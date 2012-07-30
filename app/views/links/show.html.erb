@@ -1,2 +1,8 @@
-<h1>Links#show</h1>
-<p>Find me in app/views/links/show.html.erb</p>
+<a class='btn' href='<%=@link.url%>'> <%=@link.description%></a>
+<br>
+
+<%= render :partial => 'comments/form', :locals => { :commentable => @commentable, :comment => @comment } %>
+
+<% @link.comments.each do |c| %>
+	-> <%= c.text %><br>
+<% end %>
